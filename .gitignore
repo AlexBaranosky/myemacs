@@ -1,0 +1,14 @@
+*~*
+*#*
+*-history
+.smex-items
+places
+user.el
+emacs_workgroups
+bookmarks
+.places
+recentf
+tramp
+ido.last
+.mc-lists.el
+projectile.cache

@@ -1,0 +1,4 @@
+cd ../../..
+cd .
+cd ../..
+git clone git@github.com:ctford/traversy.git
