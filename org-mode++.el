@@ -18,9 +18,9 @@
 (setq org-agenda-start-with-follow-mode t)
 ;;(setq org-startup-with-inline-images t)
 
-(setq org-highest-priority ?G) ;; Urgent
-(setq org-default-priority ?I) ;; Important
-(setq org-lowest-priority ?X)  ;; Exciting
+(setq org-highest-priority ?A)
+(setq org-default-priority ?M)
+(setq org-lowest-priority ?Z)
 
 (setq org-capture-templates
       '(("w" "Work Notes" plain (file "~/worg/worg/cardsw.org")
@@ -81,7 +81,7 @@
           (org-agenda-sorting-strategy '(priority-down todo-state-up))))))
 
 (setq org-todo-keywords
-      '((sequence "MAYBE" "TODO" "IN_PROGRESS" "BLOCKED_ON" "DELEGATED_PAULA" "|" "DONE")))
+      '((sequence "MAYBE" "TODO" "IN_PROGRESS" "BLOCKED_ON" "|" "DONE")))
 
 (add-hook 'org-mode-hook
           (lambda ()
