@@ -80,6 +80,9 @@
          ((org-agenda-files (list "~/worg/worg/cardsw.org"))
           (org-agenda-sorting-strategy '(priority-down todo-state-up))))))
 
+(setq org-clock-persist 'history)
+(org-clock-persistence-insinuate)
+
 (setq org-todo-keywords
       '((sequence "MAYBE" "TODO" "IN_PROGRESS" "BLOCKED_ON" "|" "DONE")))
 
