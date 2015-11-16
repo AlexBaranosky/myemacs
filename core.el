@@ -317,10 +317,10 @@ buffer is not visiting a file."
 ;;(add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/extensions")
 
-(setq backup-directory-alist
-      `(("." . ,(expand-file-name "~/emacs.d/backups"))))
-(setq auto-save-file-name-transforms
-      `((".*" ,(expand-file-name "~/emacs.d/backups") t)))
+;; (setq backup-directory-alist
+;;       `(("." . ,(expand-file-name "~/emacs.d/backups"))))
+;; (setq auto-save-file-name-transforms
+;;       `((".*" ,(expand-file-name "~/emacs.d/backups") t)))
 
 (winner-mode 1)
 (global-hl-line-mode 1)
@@ -351,3 +351,28 @@ buffer is not visiting a file."
 (global-set-key [(super c)] 'alex_console_log)
 (global-set-key [(super j)] 'json-pretty-print)
 
+
+
+
+(fset 'alex-keep-head
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([19 60 60 60 60 60 60 60 32 72 69 65 68 return 1 67108896 down 23 19 61 61 61 61 61 61 61 return 1 67108896 19 62 62 62 62 62 62 62 return 5 23 backspace] 0 "%d")) arg)))
+
+(global-set-key [(super h)] 'alex-keep-head)
+
+
+(fset 'alex-org-time
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([21 3 33 return left left left left left left M-backspace M-backspace M-backspace M-backspace 5] 0 "%d")) arg)))
+
+(fset 'alex-cljr-get-to-kw-lookup
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([19 40 103 101 116 return right backspace backspace backspace backspace 134217734 134217748 5] 0 "%d")) arg)))
+
+
+(fset 'alex-inc-migration
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([19 100 101 102 45 109 105 103 114 97 116 105 111 110 return right right 67108896 19 45 left 23 24 111 40 43 33554464 49 32 25 right 21 24 5 134217730 201326624 23 24 111 25] 0 "%d")) arg)))
+
+(global-set-key [(super i)] 'alex-inc-migration)
+
+(fset 'alex-export-true
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([58 101 120 112 111 114 116 63 33554464 116 114 117 101 24 19] 0 "%d")) arg)))
+
+(global-set-key [(super b)] 'alex-export-true)

@@ -21,7 +21,11 @@
 (key-chord-define-global "p[" 'cljr-cycle-privacy)
 (key-chord-define-global "s[" 'cljr-cycle-stringlike)
 
+(define-key clojure-mode-map [(super g)] 'alex-cljr-get-to-kw-lookup)
+
 ;; Warn about missing nREPL instead of doing stupid things
+
+(setq clojure-font-lock-comment-sexp nil)
 
 (defun emacs++-nrepl-warn-when-not-connected ()
   (interactive)

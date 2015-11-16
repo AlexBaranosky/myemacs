@@ -1,11 +1,17 @@
 (require 'org)
 (require 'ob-clojure)
+
+
+
+
 (setq org-babel-clojure-backend 'cider)
 
 (define-key org-mode-map "\C-cl" 'org-store-link)
 (define-key org-mode-map "\C-ca" 'org-agenda)
 (define-key org-mode-map "\C-cc" 'org-capture)
 (define-key org-mode-map "\C-cb" 'org-iswitchb)
+
+(define-key org-mode-map [(super t)] 'alex-org-time)
 
 ;; make Excel spreadsheets open in Excel/Numbers/OpenOffice
 (add-to-list 'org-file-apps '("\\.xls\\'" . default))
@@ -15,34 +21,20 @@
 
 (setq org-agenda-include-diary t)
 (setq org-src-fontify-natively t)
-(setq org-agenda-start-with-follow-mode t)
+(setq org-agenda-start-with-follow-mode nil)
 ;;(setq org-startup-with-inline-images t)
 
 (setq org-highest-priority ?A)
-(setq org-default-priority ?M)
+(setq org-default-priority ?C)
 (setq org-lowest-priority ?Z)
 
-(setq org-capture-templates
-      '(("w" "Work Notes" plain (file "~/worg/worg/cardsw.org")
-         "* %u
-** TECH BLOCKERS
-***
-** BIZ BLOCKERS
-***
-** DID
-***
-** TO DO NEXT
-***
-** TECH THOUGHTS
-***
-** BIZ THOUGHTS
-*** ")))
+(defun read-lines (filePath)
+  "Return a list of lines of a file at filePath."
+  (with-temp-buffer
+    (insert-file-contents filePath)
+    (split-string (buffer-string) "\n" t)))
 
-(setq org-agenda-files '("~/Dropbox/org/cards.txt"
-                         "~/Dropbox/org/finance.txt"
-                         "~/Dropbox/org/fitness.txt"
-                         "~/Dropbox/org/lift-log.txt"
-                         "~/Dropbox/org/quant.txt"))
+(setq org-agenda-files (read-lines "~/Dropbox/org/agenda_files"))
 
 (setq org-agenda-sorting-strategy
       '((agenda priority-down todo-state-up)
@@ -52,11 +44,11 @@
 
 (setq org-agenda-custom-commands
       '(("w" "Todo (Work)" todo ""
-         ((org-agenda-files (list "~/worg/worg/cardsw.org"))
+         ((org-agenda-files (list "~/work/tg/org/tg.org"))
           (org-agenda-sorting-strategy '(priority-down todo-state-up))))
 
         ("1" "Deadlines (Work)" agenda ""
-         ((org-agenda-files (list "~/worg/worg/cardsw.org"))
+         ((org-agenda-files (list "~/work/tg/org/tg.org"))
           (org-agenda-time-grid nil)
           (org-deadline-warning-days 28)
           (org-agenda-entry-types '(:deadline))))

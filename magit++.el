@@ -19,3 +19,5 @@
 (setq magit-highlight-whitespace nil)
 
 (global-set-key (kbd "C-c g") 'magit-status)
+(setq git-commit-summary-max-length 1000)
+(setq git-commit-fill-column 1000)

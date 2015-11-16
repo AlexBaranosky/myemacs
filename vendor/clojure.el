@@ -19,4 +19,4 @@
 (add-hook 'clojurescript-mode-hook (lambda () (whitespace-mode t)))
 
 (setq whitespace-style '(face lines-tail trailing))
-(setq whitespace-line-column 84)
+(setq whitespace-line-column 80)
